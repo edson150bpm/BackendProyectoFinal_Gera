@@ -3,9 +3,9 @@ let conexion;
 
 try {
     conexion = mysql.createConnection({
-        host:"localhost", 
-        database: "bdProyectoGera",
-        user: "root",
+        host:process.env.BDHOST, 
+        database: process.env.BDNAME,
+        user: process.env.BDUSER,
         password: ""
         
     })

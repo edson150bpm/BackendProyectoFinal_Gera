@@ -13,7 +13,7 @@
  rutas.route("/login").post(rutaLogin)
  rutas.route("/register").post(rutaRegister)
  rutas.route("/register/curso").post(rutaRegisterCurso).get(rutaGetRegister)
- rutas.route("registro/tema").get(rutaGetTema).post(rutaPostAddTem).put(rutaPutEditTem).delete(rutaDeleteTema)
+ rutas.route("/registro/tema").get(rutaGetTema).post(rutaPostAddTem).put(rutaPutEditTem).delete(rutaDeleteTema)
 
 
 

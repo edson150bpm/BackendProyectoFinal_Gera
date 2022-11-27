@@ -5,8 +5,8 @@ const cors = require("cors"); //Para darle seguridad cuando este montado
 const app = express();
 //Configuracion
 
-app.set("port", 4000);
-app.set("host", "localhost");
+app.set("port", process.env.PORT);
+app.set("host", process.env.HOST);
 app.use(cors());
 
 
