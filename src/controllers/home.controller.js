@@ -1,14 +1,26 @@
 //FUNCIONES QUE SE CONECTAN A LA BASE DE DATOS
-
-// function rutaHome(req, res){
-//     res.status(200).json({mensaje:"Mensaje exitoso"})
-// }
+const db = require ("../bd")
 
 const rutaHome= (req, res) => {
-    res.status(200).json({mensaje:"Mensaje exitoso"})
+    db.conexion.query('SELECT * FROM cursos', (error, result) =>{
+       if (error){
+        console.error("Error", error);
+       }else{
+        res.status(200).json({mensaje:"Cursos encontrados", data: result}) 
+       }
+    })
+
 }
 const rutaLogin= (req, res) => {
-    res.status(200).json({mensaje:"Mensaje exitoso"})
+    const {correo, password}=req.body
+    db.conexion.query(`SELECT * FROM usuarios WHERE correo = "${correo}" AND password = "${password}"`, (error, result) =>{
+        if(error){
+            console.error("Error",error);
+        }else{
+            res.status(200).json({mensaje:"Datos obtenidos", data: result})
+        }
+    })
+    
 }
 const rutaRegister= (req, res) => {
     res.status(200).json({mensaje:"Mensaje exitoso"})

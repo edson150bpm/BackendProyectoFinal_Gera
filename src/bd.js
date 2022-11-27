@@ -4,8 +4,8 @@ let conexion;
 try {
     conexion = mysql.createConnection({
         host:"localhost", 
-        user: "root",
         database: "bdProyectoGera",
+        user: "root",
         password: ""
         
     })
