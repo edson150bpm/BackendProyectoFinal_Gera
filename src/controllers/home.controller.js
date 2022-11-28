@@ -76,6 +76,7 @@ const rutaRegister = (req, res) => {
     }
   });
 };
+
 const rutaRegisterCurso = (req, res) => {
   const { nombreCurso, id_usuario, descripcion_curso } = req.body;
   console.log(req.body);
@@ -98,10 +99,10 @@ const rutaRegisterCurso = (req, res) => {
 
 const rutaGetRegister = (req, res) => {
   try {
-    console.log(req.body);
-    const { id_usuario } = req.body;
+    // console.log(req.body);
+    // const { id_usuario } = req.body;
     db.conexion.query(
-      `SELECT * FROM cursos WHERE id_usuario = "${id_usuario}"`,
+      `SELECT * FROM cursos WHERE id_usuario = "${req.params.idUsuario}"`,
       (error, result) => {
         if (error) {
           res.status(500).json({ mensaje: "Error de servidor", error: error });
@@ -117,6 +118,7 @@ const rutaGetRegister = (req, res) => {
         }
       }
     );
+    console.log()
   } catch (error) {
     res.status(500).json({ mensaje: "Error de servidor", error: error });
   }
@@ -125,10 +127,10 @@ const rutaGetRegister = (req, res) => {
 const rutaGetTema = (req, res) => {
     
   try {
-    console.log(req.body);
-    const { id_curso } = req.body;
+    // console.log(req.body);
+    // const { id_curso } = req.body;
     db.conexion.query(
-      `SELECT * FROM temas WHERE id_curso = '${id_curso}'`,
+      `SELECT * FROM temas WHERE id_curso = '${req.params.idCurso}'`,
       (error, result) => {
         if (error) {
           res.status(500).json({ mensaje: "Error de servidor", error: error });
