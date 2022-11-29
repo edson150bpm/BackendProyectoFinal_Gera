@@ -113,7 +113,7 @@ const rutaGetRegister = (req, res) => {
           } else {
             return res
               .status(200)
-              .json({ mensaje: "Usuario encontrado", data: result[0] });
+              .json({ mensaje: "Usuario encontrado", data: result });
           }
         }
       }
@@ -189,9 +189,10 @@ const rutaPutEditTem = (req, res) => {
   );
 };
 const rutaDeleteTema = (req, res) => {
-  const { id_tema } = req.body;
+  const { idTema } = req.params;
+  console.log(idTema)
   db.conexion.query(
-    `DELETE FROM temas WHERE id_tema = '${id_tema}'`,
+    `DELETE FROM temas WHERE id_tema = '${idTema}'`,
     (error, result) => {
       if (error) {
         console.error("Error", error);

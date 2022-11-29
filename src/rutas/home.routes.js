@@ -14,7 +14,8 @@
  rutas.route("/register").post(rutaRegister)
  rutas.route("/register/curso").post(rutaRegisterCurso)
  rutas.route("/register/curso/:idUsuario").get(rutaGetRegister)
- rutas.route("/registro/tema").post(rutaPostAddTem).put(rutaPutEditTem).delete(rutaDeleteTema)
+ rutas.route("/registro/tema").post(rutaPostAddTem).put(rutaPutEditTem)
+ rutas.route("/registro/tema/:idTema").delete(rutaDeleteTema)
  rutas.route("/registro/tema/:idCurso").get(rutaGetTema)
 
 
