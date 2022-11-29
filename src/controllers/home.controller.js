@@ -181,7 +181,7 @@ const rutaPutEditTem = (req, res) => {
                        WHERE id_tema = '${id_tema}'`,
     (error, result) => {
       if (error) {
-        console.error("Error", errror);
+        console.error("Error", error);
       } else {
         res.status(200).json({ mensaje: "Datos obtenidos", data: result });
       }
